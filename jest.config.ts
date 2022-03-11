@@ -81,7 +81,10 @@ export default {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+    "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -199,6 +202,7 @@ export default {
         },
       },
     ],
+    ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
